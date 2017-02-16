@@ -27,6 +27,27 @@ class Tree
     bfs_search_at_node(@root, v)
   end
 
+  def preorder_traversal(node, arr)
+    return arr if node.nil?
+    arr << node.val
+    preorder_traversal(node.left, arr)
+    preorder_traversal(node.right, arr)
+  end
+
+  def in_order_traversal(node, arr)
+    return arr if node.nil?
+    in_order_traversal(node.left, arr)
+    arr << node.val
+    in_order_traversal(node.right, arr)
+  end
+
+  def post_order_traversal(node, arr)
+    return arr if node.nil?
+    post_order_traversal(node.left, arr)
+    post_order_traversal(node.right, arr)
+    arr << node.val
+  end
+
   private
 
   def tree_height(node)
